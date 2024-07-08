@@ -1,17 +1,17 @@
 import "reflect-metadata";
-import express, {Request, Response} from 'express';
+import express from 'express';
 import AppDataSource from "./data-source";
+import { apiRouter } from "./routes/api";
+
+const app = express();
+app.use(express.json());
+const PORT = 3000;
 
 AppDataSource.initialize()
     .then(() => {
         console.log("Database connected Successfully.");
 
-        const app = express();
-        const PORT = 3000;
-        
-        app.get('/', (req:Request, res:Response): void => {
-            res.json({data:"Successfully data retrieved."});
-        });
+        app.use('/', apiRouter);
         
         app.listen(PORT, (): void => {
             console.log(`Server running on ${PORT}`);

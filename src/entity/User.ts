@@ -34,7 +34,7 @@ export class User extends BaseEntity {
     })
     is_active: Boolean
 
-    @OneToOne(() => Profile)
+    @OneToOne(() => Profile, { cascade: ["insert", "update", "remove"], eager: true})
     @JoinColumn()
     profile: Profile
 

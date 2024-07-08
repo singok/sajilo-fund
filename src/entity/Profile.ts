@@ -37,6 +37,11 @@ export class Profile extends BaseEntity {
     })
     address: string
 
+    @Column({
+        nullable: true
+    })
+    image: string
+
     @CreateDateColumn()
     created_at: Date
 
