@@ -7,8 +7,8 @@ const AppDataSource = new DataSource({
     username: "root",
     password: "",
     database: "sajilo_fund",
-    synchronize: false,
-    logging: false,
+    synchronize: true,
+    logging: true,
     entities: ['src/entity/*{.ts,.js}']
 });
 

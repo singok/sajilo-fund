@@ -3,6 +3,7 @@ import { RoleController } from "../controllers/RoleController";
 import { CategoryController } from "../controllers/CategoryController";
 import { fileUpload } from "../controllers/FileOperation";
 import { HomeController } from "../controllers/HomeController";
+import { AdvertisementController } from "../controllers/AdvertisementController";
 
 const router: Router = express.Router();
 
@@ -26,6 +27,15 @@ router.delete('/category/:id', new CategoryController().deleteCategory);
 router.put('/home/:id', fileUpload.single('image'), new HomeController().updateHome);
 router.get('/home', new HomeController().getHome);
 // END : HOME
+
+// START : ADVERTISEMENT
+router.post('/advertisement', fileUpload.single('image'), new AdvertisementController().storeAdvertisement);
+router.get('/advertisement', new AdvertisementController().getAdvertisements);
+router.get('/advertisement/:id', new AdvertisementController().editAdvertisement);
+router.delete('/advertisement/:id', new AdvertisementController().deleteAdvertisement);
+router.put('/advertisement/:id', fileUpload.single('image'), new AdvertisementController().updateAdvertisement);
+router.patch('/advertisement/:id', new AdvertisementController().updateAdvertisementStatus);
+// END : ADVERTISEMENT
 
 export const apiRouter: Router = router;
 
