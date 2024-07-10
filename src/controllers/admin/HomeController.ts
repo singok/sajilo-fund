@@ -1,5 +1,5 @@
 import { Request, Response } from "express"; 
-import HomeService from "../services/HomeService";
+import HomeService from "../../services/HomeService";
 
 export class HomeController {
     private homeService: HomeService;

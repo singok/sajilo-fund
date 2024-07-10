@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { AdvertisementService } from "../services/AdvertisementService";
+import { AdvertisementService } from "../../services/AdvertisementService";
 import { Repository } from "typeorm";
-import { Advertisement } from "../entity/Advertisement";
-import AppDataSource from "../data-source";
+import { Advertisement } from "../../entity/Advertisement";
+import AppDataSource from "../../data-source";
 import path from "path";
 import fs from 'node:fs';
 

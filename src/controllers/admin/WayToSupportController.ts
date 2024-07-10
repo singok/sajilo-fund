@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { WaysToSupportService } from "../services/WaysToSupportService";
+import { WaysToSupportService } from "../../services/WaysToSupportService";
 import { Repository } from "typeorm";
-import { WaysToSupport } from "../entity/WaysToSupport";
-import AppDataSource from "../data-source";
+import { WaysToSupport } from "../../entity/WaysToSupport";
+import AppDataSource from "../../data-source";
 import path from "path";
 import fs from 'node:fs';
 

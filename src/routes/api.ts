@@ -1,11 +1,11 @@
 import express, { Router} from "express";
-import { RoleController } from "../controllers/RoleController";
-import { CategoryController } from "../controllers/CategoryController";
-import { fileUpload } from "../controllers/FileOperation";
-import { HomeController } from "../controllers/HomeController";
-import { AdvertisementController } from "../controllers/AdvertisementController";
-import { AboutController } from "../controllers/AboutController";
-import { WaysToSupportController } from "../controllers/WayToSupportController";
+import { RoleController } from "../controllers/admin/RoleController";
+import { CategoryController } from "../controllers/admin/CategoryController";
+import { fileUpload } from "../controllers/admin/FileOperation";
+import { HomeController } from "../controllers/admin/HomeController";
+import { AdvertisementController } from "../controllers/admin/AdvertisementController";
+import { AboutController } from "../controllers/admin/AboutController";
+import { WaysToSupportController } from "../controllers/admin/WayToSupportController";
 
 const router: Router = express.Router();
 

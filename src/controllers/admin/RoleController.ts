@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import AppDataSource from "../data-source";
-import { Role } from "../entity/Role";
+import AppDataSource from "../../data-source";
+import { Role } from "../../entity/Role";
 import { Repository } from "typeorm";
 
 export class RoleController {

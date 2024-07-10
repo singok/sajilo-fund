@@ -1,13 +1,16 @@
 import { Request, Response } from "express";
-import AppDataSource from "../data-source";
-import { Category } from "../entity/Category";
+import AppDataSource from "../../data-source";
+import { Category } from "../../entity/Category";
 import { Repository } from "typeorm";
+import { CategoryService } from "../../services/CategoryService";
 
 export class CategoryController {
-    categoryRepository: Repository<Category>;
-    
+    private categoryRepository: Repository<Category>;
+    private categoryService: CategoryService;
+
     constructor() {
         this.categoryRepository = AppDataSource.getRepository(Category);
+        this.categoryService = new CategoryService;
     }
 
     getCategories = async (req: Request, res: Response) => {
@@ -24,9 +27,7 @@ export class CategoryController {
     }
 
     storeCategory = async (req: Request, res: Response) => {
-        const category = new Category();
-        category.name = req.body.name;
-        const categoryInserted = await this.categoryRepository.save(category);
+        const result = await this.categoryService.storeCategory(req);
         res.status(201).json({message: "Successfully category inserted."});
 
     }
@@ -45,7 +46,7 @@ export class CategoryController {
     }
 
     updateCategory = async (req: Request, res: Response) => {
-        const categoryUpdated = await this.categoryRepository.update(Number(req.params.id), req.body);
+        const result = await this.categoryService.updateCategory(req);
         res.status(200).json({message: "Successfully category updated."});
     }
 

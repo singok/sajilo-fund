@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
-import AppDataSource from "../data-source";
-import { About } from "../entity/About";
-import { AboutService } from "../services/AboutService";
+import AppDataSource from "../../data-source";
+import { About } from "../../entity/About";
+import { AboutService } from "../../services/AboutService";
 import { Request, Response } from "express";
 import path from "node:path";
 import fs from "node:fs";
