@@ -5,6 +5,7 @@ import { fileUpload } from "../controllers/FileOperation";
 import { HomeController } from "../controllers/HomeController";
 import { AdvertisementController } from "../controllers/AdvertisementController";
 import { AboutController } from "../controllers/AboutController";
+import { WaysToSupportController } from "../controllers/WayToSupportController";
 
 const router: Router = express.Router();
 
@@ -31,10 +32,10 @@ router.get('/home', new HomeController().getHome);
 
 // START : ADVERTISEMENT
 router.post('/advertisement', fileUpload.single('image'), new AdvertisementController().storeAdvertisement);
+router.put('/advertisement/:id', fileUpload.single('image'), new AdvertisementController().updateAdvertisement);
 router.get('/advertisement', new AdvertisementController().getAdvertisements);
 router.get('/advertisement/:id', new AdvertisementController().editAdvertisement);
 router.delete('/advertisement/:id', new AdvertisementController().deleteAdvertisement);
-router.put('/advertisement/:id', fileUpload.single('image'), new AdvertisementController().updateAdvertisement);
 router.patch('/advertisement/:id', new AdvertisementController().updateAdvertisementStatus);
 // END : ADVERTISEMENT
 
@@ -46,6 +47,14 @@ router.delete('/about/:id', new AboutController().deleteAbout);
 router.put('/about/:id', fileUpload.single('image'), new AboutController().updateAbout);
 router.patch('/about/:id', new AboutController().updateAboutStatus);
 // END : ABOUT
+
+// START : WAYS TO SUPPORT
+router.post('/ways-to-support', fileUpload.single('image'), new WaysToSupportController().storeWaysToSupport);
+router.put('/ways-to-support/:id', fileUpload.single('image'), new WaysToSupportController().updateWaysToSupport);
+router.get('/ways-to-support', new WaysToSupportController().getWaysToSupport);
+router.get('/ways-to-support/:id', new WaysToSupportController().editWaysToSupport);
+router.delete('/ways-to-support/:id', new WaysToSupportController().deleteWaysToSupport);
+// END : WAYS TO SUPPORT
 
 export const apiRouter: Router = router;
 
