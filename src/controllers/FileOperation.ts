@@ -1,7 +1,5 @@
 import multer from "multer"
 
-const fs = require('fs');
-
 const storage = multer.diskStorage({
 	destination: function (req, file, callback) {
 		callback(null, 'src/public/uploads')

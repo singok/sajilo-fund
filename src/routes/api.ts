@@ -4,6 +4,7 @@ import { CategoryController } from "../controllers/CategoryController";
 import { fileUpload } from "../controllers/FileOperation";
 import { HomeController } from "../controllers/HomeController";
 import { AdvertisementController } from "../controllers/AdvertisementController";
+import { AboutController } from "../controllers/AboutController";
 
 const router: Router = express.Router();
 
@@ -36,6 +37,15 @@ router.delete('/advertisement/:id', new AdvertisementController().deleteAdvertis
 router.put('/advertisement/:id', fileUpload.single('image'), new AdvertisementController().updateAdvertisement);
 router.patch('/advertisement/:id', new AdvertisementController().updateAdvertisementStatus);
 // END : ADVERTISEMENT
+
+// START : ABOUT
+router.post('/about', fileUpload.single('image'), new AboutController().storeAbout);
+router.get('/about', new AboutController().getAbouts);
+router.get('/about/:id', new AboutController().editAbout);
+router.delete('/about/:id', new AboutController().deleteAbout);
+router.put('/about/:id', fileUpload.single('image'), new AboutController().updateAbout);
+router.patch('/about/:id', new AboutController().updateAboutStatus);
+// END : ABOUT
 
 export const apiRouter: Router = router;
 
